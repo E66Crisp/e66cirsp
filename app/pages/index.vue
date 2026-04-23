@@ -2,9 +2,9 @@
 import { useHead } from 'nuxt/app'
 import { site } from '~/constants/site'
 
-useHead({
-  title: site.name,
-})
+const { m, locale } = useAppI18n()
+
+useHead({ title: site.name })
 </script>
 
 <template>
@@ -28,7 +28,8 @@ useHead({
         </h1>
         <p class="font-dm-mono text-[13px] text-neutral-500">
           <TypewriterText
-            :text="site.tagline"
+            :key="locale"
+            :text="m.tagline"
             :type-interval="90"
             :hold-duration="5400"
             :delete-interval="90"
@@ -40,11 +41,11 @@ useHead({
 
     <section class="space-y-5">
       <h2 class="text-base font-semibold tracking-tight text-neutral-900">
-        About
+        {{ m.aboutHeading }}
       </h2>
       <div class="space-y-4 font-dm-mono text-[16px] leading-relaxed text-neutral-800">
         <p
-          v-for="(p, i) in site.aboutParagraphs"
+          v-for="(p, i) in m.aboutParagraphs"
           :key="i"
         >
           {{ p }}

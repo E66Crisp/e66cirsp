@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useHead } from 'nuxt/app'
 
-useHead({
-  title: 'Blogs',
-})
+const { m } = useAppI18n()
+
+useHead(() => ({ title: m.value.pageTitle.blogs }))
 </script>
 
 <template>
   <p class="font-dm-mono text-[16px] text-neutral-500">
-    内容待补充。
+    {{ m.placeholder }}
   </p>
 </template>

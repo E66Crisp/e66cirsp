@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+const { otherLocale, toggleLocale, m } = useAppI18n()
+
+const langShort = computed(
+  () => (otherLocale.value === 'zh' ? '中' : 'EN'),
+)
+
 function scrollToTop() {
   if (import.meta.client)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -12,14 +20,15 @@ function scrollToTop() {
     <button
       type="button"
       class="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-neutral-600 shadow ring-1 ring-black/5 backdrop-blur transition hover:text-neutral-900"
-      aria-label="语言"
+      :aria-label="m.float.languageSwitch"
+      @click="toggleLocale"
     >
-      <span class="font-dm-mono text-[10px]">A文</span>
+      <span class="font-dm-mono text-[10px] tabular-nums leading-none">{{ langShort }}</span>
     </button>
     <button
       type="button"
       class="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-neutral-600 shadow ring-1 ring-black/5 backdrop-blur transition hover:text-neutral-900"
-      aria-label="回到顶部"
+      :aria-label="m.float.scrollTop"
       @click="scrollToTop"
     >
       <svg

@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { navItems, site } from '~/constants/site'
+import { navRoutes, site } from '~/constants/site'
+
+const { m } = useAppI18n()
+
+const navItems = computed(() => {
+  const labels = [m.value.nav.home, m.value.nav.project, m.value.nav.blogs] as const
+  return navRoutes.map((r, i) => ({ to: r.to, label: labels[i]! }))
+})
 </script>
 
 <template>
@@ -38,7 +45,7 @@ import { navItems, site } from '~/constants/site'
           target="_blank"
           rel="noopener noreferrer"
           class="flex h-5 w-5 items-center justify-center text-neutral-800 transition-opacity hover:opacity-70"
-          aria-label="GitHub"
+          :aria-label="m.header.github"
         >
           <svg
             class="h-4 w-4"
@@ -55,7 +62,7 @@ import { navItems, site } from '~/constants/site'
         <button
           type="button"
           class="flex h-6 w-6 items-center justify-center rounded-full text-neutral-800 ring-1 ring-neutral-200 transition hover:bg-neutral-50"
-          aria-label="设置"
+          :aria-label="m.header.settings"
         >
           <svg
             class="h-3.5 w-3.5"

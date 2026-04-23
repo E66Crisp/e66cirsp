@@ -1,12 +1,17 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 
+const { locale } = useAppLocale()
 const time = ref('')
 const iso = ref('')
 
+function timeLocale() {
+  return locale.value === 'zh' ? 'zh-CN' : 'en-US'
+}
+
 function tick() {
   const d = new Date()
-  time.value = d.toLocaleTimeString('en-US', {
+  time.value = d.toLocaleTimeString(timeLocale(), {
     hour: 'numeric',
     minute: '2-digit',
     second: '2-digit',
@@ -21,6 +26,8 @@ onMounted(() => {
   tick()
   id = setInterval(tick, 1000)
 })
+
+watch(locale, () => tick())
 
 onUnmounted(() => {
   if (id)
