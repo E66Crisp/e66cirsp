@@ -9,7 +9,7 @@ description: Instructs the agent not to run ESLint, pnpm lint, or lint while imp
 
 在本仓库里**实现、修改、重构代码**时：
 
-- **不要**主动执行 `pnpm run lint`、`pnpm run lint:fix`、`eslint` 全量或针对项目跑校验，也**不要**把「跑一遍 lint」当作实现任务里的常规步骤。
+- **不要**主动执行 `pnpm run lint`、`pnpm run lint:fix`、`eslint` 全量或针对项目跑校验，也**不要**把「跑一遍 lint」以及 `pnpm run build` 当作实现任务里的常规步骤。
 - **不要**在回答里默认建议「先执行 lint 再提交」作为本次改动的收尾（除非用户明确要求检查风格）。
 
 ## 例外（可以跑 lint）
