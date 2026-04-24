@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useHead } from 'nuxt/app'
 import type { AppLocale } from '~/i18n/messages'
+import { useHead } from 'nuxt/app'
 import { favoriteSkills } from '~/constants/favoriteSkills'
 
 const { m, locale } = useAppI18n()

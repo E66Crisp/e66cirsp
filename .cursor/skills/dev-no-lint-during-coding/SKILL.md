@@ -1,6 +1,6 @@
 ---
 name: dev-no-lint-during-coding
-description: Instructs the agent not to run ESLint, pnpm lint, or lint while implementing or editing code in this repository. Apply when coding, refactoring, adding features, fixing bugs in source files, or when the user mentions 编码/开发/写代码—unless the user explicitly asks to run lint, eslint, or fix lint issues. See dev-rules.md for team workflow (lint on git commit).
+description: Instructs the agent not to run ESLint, pnpm lint, or lint while implementing or editing code in this repository. Apply when coding, refactoring, adding features, fixing bugs in source files, or when the user mentions 编码/开发/写代码—unless the user explicitly asks to run lint, eslint, or fix lint issues. Human commit hooks (if any) are defined in package.json; see docs/02 Reference §3.
 ---
 
 # 编码阶段不执行 Lint
@@ -20,3 +20,4 @@ description: Instructs the agent not to run ESLint, pnpm lint, or lint while imp
 ## 与仓库约定的关系
 
 - 本 skill 只约束 **Agent 在编码会话中的行为**：默认不发起 lint 类命令。
+- 人类开发者日常与提交约定见 [docs/02-全局Reference规范.md](../../docs/02-全局Reference规范.md#3-编码与-agent-协作)。

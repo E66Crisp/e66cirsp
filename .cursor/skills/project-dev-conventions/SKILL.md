@@ -5,6 +5,11 @@ description: Guides Nuxt 4+ development with @antfu/eslint-config, Tailwind-only
 
 # 本仓库开发约定
 
+## 与文档分层
+
+- 三层说明见 [docs/01-项目主Spec.md](../../../docs/01-项目主Spec.md#文档三层与归档)。
+- 本文供人/Agent **速查**；若文中排版基线与页面实际 class、`nuxt.config` 字体扩展不一致，以**源码为准**，并回写本文。
+
 ## 技术栈
 
 - **Nuxt**：使用当前项目锁定的**最新 Nuxt 技术栈**（以 `package.json` 为准），目录与能力遵循 Nuxt 官方与团队 skill **`/nuxt`**（`app/`、路由、模块、`nuxt.config` 等，不引入过时 Nuxt2 习惯）。

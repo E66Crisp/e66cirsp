@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
+// 第一层 Spec：运行模式、全局样式入口、字体与 Tailwind 扩展以本文件为准；摘要见 docs/01。
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
