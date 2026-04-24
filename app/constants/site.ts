@@ -9,4 +9,5 @@ export const navRoutes = [
   { to: '/' as const },
   { to: '/project' as const },
   { to: '/blogs' as const },
+  { to: '/favorites' as const },
 ] as const
