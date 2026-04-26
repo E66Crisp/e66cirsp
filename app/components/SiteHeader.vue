@@ -4,7 +4,7 @@ import { navRoutes, site } from '~/constants/site'
 const { m } = useAppI18n()
 
 const navItems = computed(() => {
-  const labels = [m.value.nav.home, m.value.nav.project, m.value.nav.blogs] as const
+  const labels = [m.value.nav.home, m.value.nav.project, m.value.nav.blogs, m.value.nav.favorites] as const
   return navRoutes.map((r, i) => ({ to: r.to, label: labels[i]! }))
 })
 </script>
