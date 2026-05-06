@@ -18,51 +18,75 @@ export type FavoriteSkillEntry = {
 /** 收藏的技能列表；增删改只改本文件与收藏页展示结构。 */
 export const favoriteSkills: FavoriteSkillEntry[] = [
   {
-    name: 'Cursor — Agent Skills',
-    url: 'https://cursor.com/docs/context/skills',
+    name: 'Code Review Expert',
+    url: 'https://github.com/sanyuan0704/sanyuan-skills/blob/main/skills/code-review-expert/README.md',
     install: {
-      en: 'Read project docs: place SKILL.md under `.cursor/skills/<name>/` and reference it in rules or prompts as needed.',
-      zh: '阅读官方文档：将 `SKILL.md` 放在 `.cursor/skills/<名称>/` 下，并在规则或对话中按需引用。',
+      en: 'npx skills add sanyuan0704/sanyuan-skills --path skills/code-review-expert',
+      zh: 'npx skills add sanyuan0704/sanyuan-skills --path skills/code-review-expert',
     },
     description: {
-      en: 'Official guide to packaging reusable instructions for the agent.',
-      zh: '官方说明如何把可复用的说明打包成 Agent 可用的 Skill。',
+      en: 'helps you review code.',
+      zh: '审查代码。',
     },
   },
   {
-    name: 'create-skill',
-    url: 'https://cursor.com/docs/context/rules',
+    name: 'Sigma',
+    url: 'https://github.com/sanyuan0704/sanyuan-skills/blob/main/skills/sigma/README.md',
     install: {
-      en: 'In repo: `.cursor/skills/<skill-id>/SKILL.md`, or follow Cursor docs for project rules.',
-      zh: '在仓库 `.cursor/skills/<skill-id>/` 下放置 `SKILL.md`，或按 Cursor 文档配置项目规则。',
+      en: `npx skills add sanyuan0704/sanyuan-skills --path skills/sigma`,
+      zh: `npx skills add sanyuan0704/sanyuan-skills --path skills/sigma`,
     },
     description: {
-      en: 'Official guidance on rules and skill-style context for Cursor.',
-      zh: 'Cursor 对规则与类 Skill 上下文的官方说明，适合作为编写规范入口。',
+      en: `Personalized 1-on-1 AI tutor agent skill. Based on Bloom's 2-Sigma mastery learning`,
+      zh: `个性化1对1 AI 导师技能。基于布鲁姆的2-Sigma掌握学习理论`,
     },
   },
   {
-    name: 'project-dev-conventions',
-    url: 'https://github.com/E66Crisp/blob/blob/main/.cursor/skills/project-dev-conventions/SKILL.md',
+    name: 'markdown-documentation',
+    url: 'https://skills.sh/aj-geddes/useful-ai-prompts/markdown-documentation',
     install: {
-      en: 'Copy the skill folder into `.cursor/skills/project-dev-conventions/` in your project.',
-      zh: '将 skill 目录复制到目标项目的 `.cursor/skills/project-dev-conventions/`（与仓库内结构一致）。',
+      en: 'npx skills add https://github.com/aj-geddes/useful-ai-prompts --skill markdown-documentation',
+      zh: 'npx skills add https://github.com/aj-geddes/useful-ai-prompts --skill markdown-documentation',
     },
     description: {
-      en: 'Nuxt + Tailwind + @antfu/eslint-config conventions used in this site’s repo.',
-      zh: '本站仓库采用的 Nuxt、Tailwind、@antfu/eslint-config 等开发约定摘要。',
+      en: 'Comprehensive reference for markdown syntax, GitHub Flavored Markdown, and documentation best practices.',
+      zh: 'Markdown 语法、GitHub Flavored Markdown 和文档最佳实践的综合参考。',
     },
   },
   {
-    name: 'dev-no-lint-during-coding',
-    url: 'https://github.com/E66Crisp/blob/blob/main/.cursor/skills/dev-no-lint-during-coding/SKILL.md',
+    name: 'antfu',
+    url: 'https://skills.sh/antfu/skills/antfu',
     install: {
-      en: 'Same as other local skills: drop under `.cursor/skills/dev-no-lint-during-coding/`.',
-      zh: '与其他本地 skill 相同：放入 `.cursor/skills/dev-no-lint-during-coding/`。',
+      en: 'npx skills add https://github.com/antfu/skills --skill antfu',
+      zh: 'npx skills add https://github.com/antfu/skills --skill antfu',
     },
     description: {
-      en: 'Tells the agent not to run ESLint during implementation unless you ask.',
-      zh: '约定在实现阶段默认不跑 ESLint，除非显式要求。',
+      en: 'Opinionated TypeScript/JavaScript conventions and tooling setup for modern projects.',
+      zh: 'TypeScript/JavaScript 的约定和工具设置，适用于现代项目。',
     },
   },
+  {
+    name: 'git-commit',
+    url: 'https://skills.sh/github/awesome-copilot/git-commit',
+    install: {
+      en: 'npx skills add https://github.com/github/awesome-copilot --skill git-commit',
+      zh: 'npx skills add https://github.com/github/awesome-copilot --skill git-commit',
+    },
+    description: {
+      en: 'Standardized git commits using Conventional Commits specification with intelligent diff analysis and message generation.',
+      zh: '使用 Conventional Commits 规范标准化 git 提交，智能差异分析和消息生成。',
+    },
+  },
+  {
+    name: 'frontend-design',
+    url: 'https://skills.sh/anthropics/skills/frontend-design',
+    install: {
+      en: 'npx skills add https://github.com/anthropics/skills --skill frontend-design',
+      zh: 'npx skills add https://github.com/anthropics/skills --skill frontend-design',
+    },
+    description: {
+      en: 'Generate frontend design ideas and mockups using AI.',
+      zh: '使用 AI 生成前端设计想法和原型。',
+    },
+  }
 ]
