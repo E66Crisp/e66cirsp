@@ -10,6 +10,8 @@ export const messages: Record<AppLocale, {
     sections: Record<'skills' | 'mcp' | 'coding-tools', string>
     subcategories: Record<'development' | 'design' | 'documentation' | 'agent', string>
     labelInstall: string
+    labelExpand: string
+    labelCollapse: string
   }
   placeholder: string
   float: { languageSwitch: string; scrollTop: string }
@@ -39,6 +41,8 @@ export const messages: Record<AppLocale, {
         agent: 'Agent',
       },
       labelInstall: 'Install',
+      labelExpand: 'Expand',
+      labelCollapse: 'Collapse',
     },
     placeholder: 'More content soon.',
     float: { languageSwitch: 'Switch to Chinese', scrollTop: 'Back to top' },
@@ -68,6 +72,8 @@ export const messages: Record<AppLocale, {
         agent: 'Agent',
       },
       labelInstall: '安装方式',
+      labelExpand: '展开',
+      labelCollapse: '收起',
     },
     placeholder: '内容待补充。',
     float: { languageSwitch: 'Switch to English', scrollTop: '回到顶部' },
