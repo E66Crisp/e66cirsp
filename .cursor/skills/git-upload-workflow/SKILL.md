@@ -1,11 +1,13 @@
 ---
 name: git-upload-workflow
-description: When the user asks to upload/push to Git, 上传 git, 提交代码, push, commit and push, or similar—run checks before commit, enforce branch guard and commit message shape, no code edits during the flow. Overrides dev-no-lint-during-coding for this explicit upload intent only.
+description: When the user asks to upload/push to Git, 上传 git, 提交代码, push, commit and push, or similar—ensure feature branch, run lint, commit, push, and create PR. Overrides dev-no-lint-during-coding for this explicit upload intent only.
 ---
 
 # Git 上传 / 提交流程（本仓库）
 
-在用户**明确**要求把改动上传到 Git（如：上传 git、提交、push、commit and push）时启用本 Skill。
+在用户**明确**要求把改动上传到 Git（如：上传 git、提交、push、commit and push、提交代码）时启用本 Skill。
+
+默认走完整链路：**功能分支 → lint → commit → push → 创建 PR**（用户明确只要 commit、不要 PR 时跳过最后一步）。
 
 ## 与 `dev-no-lint-during-coding` 的关系
 
@@ -16,17 +18,24 @@ description: When the user asks to upload/push to Git, 上传 git, 提交代码,
 
 ### 1. 提交过程中不改代码
 
-- 从用户提出「上传 git」到 `git push`（或用户喊停）为止：**不要**修改、重构或格式化任何源码/配置（除非用户另行明确要求改代码后再传）。
+- 从用户提出「上传 git」到 `git push` / PR 创建完成（或用户喊停）为止：**不要**修改、重构或格式化任何源码/配置（除非用户另行明确要求改代码后再传）。
 - 只读状态用 `git status` / `git diff` 即可。
 
-### 2. 保护分支
+### 2. 分支（保护 master / main）
 
-- 若当前分支为 **`master`** 或 **`main`**（以 `git branch --show-current` 为准）：**中止**提交与推送，并明确提示用户：保护分支上不允许按本流程上传，请先切换到功能分支。
+- 若当前分支为 **`master`** 或 **`main`**（以 `git branch --show-current` 为准）：**不得**在其上 commit / push。
+- 有未提交改动时，先切到功能分支再继续：
+  1. `git fetch origin`
+  2. 若本地 master 落后：`git checkout master` → `git pull origin master`
+  3. `git checkout -b feat/<范围>`（从本次改动概括命名，如 `feat/favorites-section-collapse`；不确定时问用户一句）
+  4. 未提交改动随工作区带到新分支（必要时 `git stash` → 切分支 → `git stash pop`）
+- 若当前已在功能分支，但该分支 PR **已合并**且又有新改动：从最新 `master` 新建分支再提交，**不要**继续往已合并的旧分支堆 commit。
+- 用户只说「帮我切分支」时，同样执行本节，切完后等待用户确认是否继续 commit / PR。
 
 ### 3. 格式 / 静态检查（有错即停）
 
 - 在本仓库根目录执行：**`pnpm run lint`**（本仓库无单独 `format` 脚本，代码风格与格式由 ESLint 承担）。
-- **若命令非零退出**：停止后续 `git add` / `commit` / `push`，向用户展示错误摘要，并说明需先修复或通过检查后再上传；**不要**在未经用户要求时擅自 `lint:fix`。
+- **若命令非零退出**：停止后续 `git add` / `commit` / `push` / PR，向用户展示错误摘要，并说明需先修复或通过检查后再上传；**不要**在未经用户要求时擅自 `lint:fix`。
 
 ### 4. 提交信息格式
 
@@ -35,15 +44,27 @@ description: When the user asks to upload/push to Git, 上传 git, 提交代码,
   - **`修改范围`** 与 **`修改内容`** 应来自当前暂存/即将提交的改动；细节让用户自行用 **`git diff`** 查看，**不要**在说明里堆文件列表替代概括。
 - **不要**在流程中执行 `git log`、`git show` 等仅为浏览历史的命令（除非用户明确要求查历史）。
 
-### 5. 推荐最小命令序列（无多余操作）
+### 5. 推荐命令序列
 
-在检查通过、且非保护分支时，按需执行（已暂存则跳过 add）：
+在检查通过、且已在功能分支时，按需执行（已暂存则跳过 add）：
 
-1. `git status`
-2. `pnpm run lint`
-3. `git add …`（仅包含本次要提交的路径，或用户指定）
-4. `git commit -m "动作(范围)：内容"`
-5. `git push`（推送到当前分支跟踪的远程分支；若未设置上游，按用户说明或提示用户设置）
+1. `git status`（必要时 `git diff`）
+2. 按 §2 确保分支正确
+3. `pnpm run lint`
+4. `git add …`（仅包含本次要提交的路径，或用户指定）
+5. `git commit -m "动作(范围)：内容"`
+6. `git push -u origin HEAD`（尚未设置上游时加 `-u`）
+
+### 6. 创建 Pull Request（push 之后，默认执行）
+
+- 用户**未**明确说「不要 PR / 只 commit」时，push 成功后**必须**尝试创建 PR。
+- 先检查当前分支是否已有 open PR：`gh pr view` 或 `gh pr list --head $(git branch --show-current)`。
+  - 已有 open PR → 告知 PR URL，不重复创建。
+- 新建 PR 使用 **`gh`**（base 分支为 **`master`**）：
+  - 标题：与最新 commit 信息一致或略作概括。
+  - Body：Summary（1–3 条）+ Test plan（简短 checklist）。
+- **`gh` 不可用**时：不阻塞已完成 push；向用户返回 GitHub compare 链接（`https://github.com/<owner>/<repo>/compare/master...<branch>`）并说明需手动开 PR。
+- PR 创建成功后，**返回 PR URL** 给用户。
 
 ## 可选
 
