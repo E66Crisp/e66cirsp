@@ -10,7 +10,7 @@
 
 - **载体**：公共 API / 组件 Props 的 TSDoc、**业务常量与配置**旁的注释、`nuxt.config` 等关键配置处的简短说明。
 - **原则**：能写进代码边上的不写进外部长文；**改行为时同步改注释**，避免脱节。
-- **示例路径**：`app/constants/site.ts`、`app/constants/favoriteSkills.ts`、各页面/组件内对非显然逻辑的注释。
+- **示例路径**：`app/constants/site.ts`、`app/constants/favorites.ts`、各页面/组件内对非显然逻辑的注释。
 
 ### 第二层：外部 Spec（本项目 + 模块，高层约束）
 
@@ -52,7 +52,7 @@
 - 首页：站点名、头像、简介文案、关于段落。
 - 栏目页（可为占位，逐步充实）：`/project`、`/blogs`、`/favorites`。
 - 全局：顶栏导航、外链 GitHub、语言切换与辅助浮层（以现有实现为准）。
-- 收藏页：按模块展示结构化列表（当前为 **Skills** 模块，数据可维护在 `app/constants/favoriteSkills.ts`）。
+- 收藏页：按大类（Skills / MCP / Coding 工具等）展示结构化列表，数据维护在 `app/constants/favorites.ts`。
 
 ### 2.2 明确不做（除非先更新本 Spec）
 

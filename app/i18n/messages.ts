@@ -7,10 +7,9 @@ export const messages: Record<AppLocale, {
   nav: { home: string; project: string; blogs: string; favorites: string }
   pageTitle: { project: string; blogs: string; favorites: string }
   favorites: {
-    sectionSkills: string
-    labelLink: string
+    sections: Record<'skills' | 'mcp' | 'coding-tools', string>
+    subcategories: Record<'development' | 'design' | 'documentation' | 'agent', string>
     labelInstall: string
-    labelAbout: string
   }
   placeholder: string
   float: { languageSwitch: string; scrollTop: string }
@@ -28,10 +27,18 @@ export const messages: Record<AppLocale, {
     nav: { home: 'Home', project: 'Project', blogs: 'Blogs', favorites: 'Favorites' },
     pageTitle: { project: 'Project', blogs: 'Blogs', favorites: 'Favorites' },
     favorites: {
-      sectionSkills: 'Skills',
-      labelLink: 'Link',
+      sections: {
+        skills: 'Skills',
+        mcp: 'MCP',
+        'coding-tools': 'Coding Tools',
+      },
+      subcategories: {
+        development: 'Development',
+        design: 'Design',
+        documentation: 'Documentation',
+        agent: 'Agent',
+      },
       labelInstall: 'Install',
-      labelAbout: 'About',
     },
     placeholder: 'More content soon.',
     float: { languageSwitch: 'Switch to Chinese', scrollTop: 'Back to top' },
@@ -49,10 +56,18 @@ export const messages: Record<AppLocale, {
     nav: { home: '首页', project: '项目', blogs: '博客', favorites: '收藏' },
     pageTitle: { project: '项目', blogs: '博客', favorites: '收藏' },
     favorites: {
-      sectionSkills: 'Skills',
-      labelLink: '链接',
+      sections: {
+        skills: 'Skills',
+        mcp: 'MCP',
+        'coding-tools': 'Coding 工具',
+      },
+      subcategories: {
+        development: '开发',
+        design: '设计',
+        documentation: '文档',
+        agent: 'Agent',
+      },
       labelInstall: '安装方式',
-      labelAbout: '描述',
     },
     placeholder: '内容待补充。',
     float: { languageSwitch: 'Switch to English', scrollTop: '回到顶部' },
