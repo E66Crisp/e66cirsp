@@ -158,4 +158,18 @@ export const favorites: FavoriteEntry[] = [
       zh: '面向编码 Agent 的结构化开发方法论，含头脑风暴、TDD、代码审查等技能集。',
     },
   },
+  {
+    name: 'figma-mcp',
+    section: 'mcp',
+    icon: 'design',
+    url: 'https://developers.figma.com/docs/figma-mcp-server/',
+    install: {
+      en: '/add-plugin figma',
+      zh: '/add-plugin figma',
+    },
+    description: {
+      en: 'Official Figma MCP for design context, Code Connect, and UI implementation in Cursor.',
+      zh: 'Figma 官方 MCP，在 Cursor 中读取设计稿、Code Connect 与实现界面。',
+    },
+  },
 ]
