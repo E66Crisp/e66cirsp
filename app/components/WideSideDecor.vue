@@ -1,0 +1,203 @@
+<template>
+  <div
+    class="pointer-events-none fixed inset-0 z-0 hidden min-[1280px]:block"
+    aria-hidden="true"
+  >
+    <!-- ponytail: pure SVG decor; no component state, favorites-only via layout meta.wide -->
+    <svg
+      class="h-full w-full text-neutral-300"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- left guides -->
+      <line
+        x1="6%"
+        y1="10%"
+        x2="6%"
+        y2="90%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.45"
+      />
+      <line
+        x1="9%"
+        y1="16%"
+        x2="9%"
+        y2="84%"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-dasharray="3 7"
+        opacity="0.3"
+      />
+      <path
+        d="M 3.5% 14% V 18% H 7.5%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.5"
+      />
+      <path
+        d="M 3.5% 86% V 82% H 7.5%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.5"
+      />
+      <line
+        x1="3.5%"
+        y1="28%"
+        x2="11%"
+        y2="28%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <line
+        x1="3.5%"
+        y1="52%"
+        x2="10%"
+        y2="52%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <line
+        x1="3.5%"
+        y1="72%"
+        x2="11%"
+        y2="72%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <circle
+        cx="6%"
+        cy="28%"
+        r="2"
+        fill="currentColor"
+        opacity="0.4"
+      />
+      <circle
+        cx="9%"
+        cy="52%"
+        r="2"
+        fill="currentColor"
+        opacity="0.35"
+      />
+      <rect
+        x="10.2%"
+        y="71.4%"
+        width="4"
+        height="4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+
+      <!-- left circuit trace -->
+      <path
+        d="M 11% 38% H 14% V 46% H 11% V 54%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.28"
+      />
+
+      <!-- right guides -->
+      <line
+        x1="94%"
+        y1="10%"
+        x2="94%"
+        y2="90%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.45"
+      />
+      <line
+        x1="91%"
+        y1="16%"
+        x2="91%"
+        y2="84%"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-dasharray="3 7"
+        opacity="0.3"
+      />
+      <path
+        d="M 96.5% 14% V 18% H 92.5%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.5"
+      />
+      <path
+        d="M 96.5% 86% V 82% H 92.5%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.5"
+      />
+      <line
+        x1="89%"
+        y1="32%"
+        x2="96.5%"
+        y2="32%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <line
+        x1="90%"
+        y1="58%"
+        x2="96.5%"
+        y2="58%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <line
+        x1="89%"
+        y1="76%"
+        x2="96.5%"
+        y2="76%"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+      <circle
+        cx="94%"
+        cy="32%"
+        r="2"
+        fill="currentColor"
+        opacity="0.4"
+      />
+      <circle
+        cx="91%"
+        cy="58%"
+        r="2"
+        fill="currentColor"
+        opacity="0.35"
+      />
+      <rect
+        x="85.6%"
+        y="75.4%"
+        width="4"
+        height="4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.35"
+      />
+
+      <!-- right circuit trace -->
+      <path
+        d="M 89% 42% H 86% V 50% H 89% V 62%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.28"
+      />
+    </svg>
+  </div>
+</template>

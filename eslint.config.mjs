@@ -9,6 +9,7 @@ export default withNuxt(
       '.nuxt',
       '.output',
       'dist',
+      '.agents',
     ],
   }),
   {
