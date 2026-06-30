@@ -6,6 +6,7 @@ export const messages: Record<AppLocale, {
   aboutParagraphs: string[]
   nav: { home: string; project: string; blogs: string; favorites: string }
   pageTitle: { project: string; blogs: string; favorites: string }
+  project: { introOwn: string; introOss: string; sectionOwn: string; sectionOss: string }
   favorites: {
     sections: Record<'skills' | 'mcp' | 'coding-tools', string>
     subcategories: Record<'development' | 'design' | 'documentation' | 'agent', string>
@@ -28,6 +29,12 @@ export const messages: Record<AppLocale, {
     ],
     nav: { home: 'Home', project: 'Project', blogs: 'Blogs', favorites: 'Favorites' },
     pageTitle: { project: 'Project', blogs: 'Blogs', favorites: 'Favorites' },
+    project: {
+      sectionOwn: 'My projects',
+      introOwn: 'Open source I ship and maintain.',
+      sectionOss: 'Contributions',
+      introOss: 'Open source repos I contribute to. Links go to my commits.',
+    },
     favorites: {
       sections: {
         skills: 'Skills',
@@ -59,6 +66,12 @@ export const messages: Record<AppLocale, {
     ],
     nav: { home: '首页', project: '项目', blogs: '博客', favorites: '收藏' },
     pageTitle: { project: '项目', blogs: '博客', favorites: '收藏' },
+    project: {
+      sectionOwn: '我的项目',
+      introOwn: '我自己开发并维护的开源项目。',
+      sectionOss: '参与的开源项目',
+      introOss: '我参与贡献的开源仓库，链接指向我的提交记录。',
+    },
     favorites: {
       sections: {
         skills: 'Skills',
