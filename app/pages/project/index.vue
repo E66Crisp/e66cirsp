@@ -4,6 +4,8 @@ import type { AppLocale } from '~/i18n/messages'
 import { useHead } from 'nuxt/app'
 import { ossContributions, ownProjects } from '~/constants/projects'
 
+definePageMeta({ wide: true })
+
 const { m, locale } = useAppI18n()
 
 useHead(() => ({ title: m.value.pageTitle.project }))
@@ -59,10 +61,11 @@ const ossProjectRows = computed(() => localizeProjects(ossContributions))
           {{ m.project.introOss }}
         </p>
       </div>
-      <ul class="grid gap-4">
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <li
           v-for="project in ossProjectRows"
           :key="project.name"
+          class="h-full"
         >
           <ProjectCard
             :name="project.name"
