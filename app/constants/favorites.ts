@@ -69,6 +69,21 @@ export const favorites: FavoriteEntry[] = [
     },
   },
   {
+    name: 'sdd-atlas',
+    section: 'skills',
+    subcategory: 'documentation',
+    icon: 'markdown',
+    url: 'https://github.com/E66Crisp/sdd-atlas',
+    install: {
+      en: 'npx skills add E66Crisp/sdd-atlas -y',
+      zh: 'npx skills add E66Crisp/sdd-atlas -y',
+    },
+    description: {
+      en: 'SDD workflow skills: sdd-init scaffolds docs/atlas/, sdd-maintenance syncs on changes, sdd-validate checks structure and links.',
+      zh: 'SDD 工作流技能：sdd-init 生成 docs/atlas/ 骨架，sdd-maintenance 同步变更，sdd-validate 校验结构与链接。',
+    },
+  },
+  {
     name: 'markdown-documentation',
     section: 'skills',
     subcategory: 'documentation',
